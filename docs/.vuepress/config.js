@@ -1,20 +1,13 @@
 const nav = require('./config/nav.js');
 
 module.exports = {
-  title: "vdoing blog",
+  title: "vdoing's blog",
   description: 'web前端技术博客,简洁至上,专注web前端学习与总结。JavaScript,js,ES6,TypeScript,vue,python,css3,html5,Node,git,github等技术文章。', // 描述,以 <meta> 标签渲染到页面html中
-  // base: '/vuepress-theme-vdoing/', // '/<github仓库名>/'， 默认'/' 
-  head: [ // 注入到页面<head> 中的标签，格式[tagName, { attrName: attrValue }, innerHTML?]
+  base: '/vdoing-demo-blog/', // '/<github仓库名>/'， 默认'/' 
+  head: [
     ['link', { rel: 'icon', href: '/img/favicon.ico' }], //favicons，资源放在public文件夹
     ['meta', { name: 'keywords', content: '前端博客,个人技术博客,前端,前端开发,前端框架,web前端,前端面试题,技术文档,学习,面试,JavaScript,js,ES6,TypeScript,vue,python,css3,html5,Node,git,github,markdown'}],
     ['meta', { name: 'theme-color', content: '#11a8cd'}], // 移动浏览器主题颜色
-
-    // 不蒜子访问量统计
-    // ['script', { src: '//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js', async: 'async'}]
-
-    // 以下是vuepress-plugin-demo-block插件所需依赖
-    // ['script', { src: 'https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js' }], // 此文件会影响导航router-link-active样式的切换，改为在enhanceApp.js中把Vue构造函数绑定到window上
-    // ['script', { src: 'https://cdn.jsdelivr.net/npm/@babel/standalone/babel.min.js' }],
   ],
   markdown: {
     lineNumbers: true // 代码行号
@@ -90,10 +83,10 @@ module.exports = {
     }
   },
   plugins: [ // 插件
-    // [require('./plugins/love-me'), { // 鼠标点击爱心特效
-    //   color: '#11a8cd', // 爱心颜色，默认随机色
-    //   excludeClassName: 'theme-vdoing-content' // 要排除元素的class, 默认空''
-    // }],
+    [require('./plugins/love-me'), { // 鼠标点击爱心特效
+      color: '#11a8cd', // 爱心颜色，默认随机色
+      excludeClassName: 'theme-vdoing-content' // 要排除元素的class, 默认空''
+    }],
 
     ['thirdparty-search', { // 可以添加第三方搜索链接的搜索框（原官方搜索框的参数仍可用）
       thirdparty: [ // 可选，默认 []
@@ -117,7 +110,7 @@ module.exports = {
       ]
     }],
 
-    'vuepress-plugin-baidu-autopush', // 百度自动推送
+    // 'vuepress-plugin-baidu-autopush', // 百度自动推送
 
     ['one-click-copy', { // 代码块复制按钮
       copySelector: ['div[class*="language-"] pre', 'div[class*="aside-code"] aside'], // String or Array
@@ -178,13 +171,5 @@ module.exports = {
         }
       }
     ]
-  ],
-  // configureWebpack: {
-  //   //webpack别名 如![Image from alias](~@alias/image.png)
-  //   resolve: {
-  //     alias: {
-  //       '@alias': 'path/to/some/dir'
-  //     }
-  //   }
-  // }
+  ]
 }
